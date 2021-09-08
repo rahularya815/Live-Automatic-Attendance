@@ -1,0 +1,328 @@
+
+
+<MainWindow>:
+    name: "main"
+
+    FloatLayout:
+        pos:0,0
+		size:root.width,root.height
+ 
+        
+
+        Button:
+		    pos_hint:{"x":0.38,"y":0.6}
+			size_hint:0.25,0.1
+            text: "Get Attendance"
+            on_release:
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+				
+		Button:
+		    pos_hint:{"x":0.38,"y":0.4}
+			size_hint:0.25,0.1
+            text: "Student's Detail"
+            on_release:
+                app.root.current = "detail"
+                root.manager.transition.direction = "left"	
+				
+				
+				
+<Studentinfo>
+    name:"detail"
+	rnumber:rnumber
+	FloatLayout:
+        pos:0,0
+		size:root.width,root.height    
+       	
+
+		Button:
+		    pos_hint: {"x":0.05, "top":0.95}
+			size_hint:0.05,0.05
+            text: "Back"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"	
+        BoxLayout:
+            cols:2					
+            Label:
+                size_hint: 0.15,0.05
+                pos_hint: {"x":1, "top":0.8}
+                text: "Roll Number: "
+                font_size: 
+			    color: 1,0,1,1
+			
+
+            TextInput:
+                pos_hint: {"x":0.3, "top":0.8}
+                size_hint: 0.15, 0.05
+                id: rnumber
+                multiline: False
+                font_size:
+            			
+		Button: 
+            text:"Submit"
+			pos_hint: {"x":0.5, "y":0.6}
+			size_hint:0.15,0.075
+            on_release:
+                app.root.current:root.submit()	
+
+<Imageview>:
+    
+    name:"view"
+	namee:namee
+	rno:rno
+	FloatLayout:
+        pos:0,0
+		size:root.width,root.height
+		Button:
+		    pos_hint: {"x":0.05, "top":0.95}
+			size_hint:0.05,0.05
+            text: "Back"
+            on_release:
+                app.root.current = "detail"
+                root.manager.transition.direction = "right"		
+        Label:
+            id:namee
+            pos_hint:{"x": 0.1, "y":0.8}
+            size_hint:0.8, 0.15
+            
+        Label:
+            id:rno
+            pos_hint:{"x": 0.1, "y":0.7}
+            size_hint:0.8, 0.15
+            
+        BoxLayout:
+            pos:0,10
+			size_hint:1,0.55
+			Image:
+                id: imageView
+                source: '<random_name>.jpg'
+                allow_stretch: False
+		
+    					
+				
+				
+				
+
+
+<SecondWindow>:
+    name: "second"
+    FloatLayout:
+	    pos:0,0
+		size:root.width,root.height
+		
+		Button:
+		    pos_hint: {"x":0.05, "top":0.95}
+			size_hint:0.05,0.05
+            text: "Back"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+		
+		
+        Button:
+		    pos_hint: {"x":0.9, "top":0.95}
+			size_hint:0.08,0.05
+            text: "Add"
+            on_release:
+                app.root.current = root.redirect()
+                root.manager.transition.direction = "right"
+				
+				
+				
+		Button:
+		    pos_hint:{"x":0.38,"y":0.6}
+			size_hint:0.25,0.1
+            text: "Automatic Attendance"
+            on_release:
+                app.root.current = "autoattend"
+                root.manager.transition.direction = "left"	
+        Button:
+		    pos_hint:{"x":0.38,"y":0.4}
+			size_hint:0.25,0.1
+            text: "Mannual Attendance"
+            on_release:
+                app.root.current = "manattend"
+                root.manager.transition.direction = "up"				
+
+
+<MannualAttend>:
+    name:"manattend"
+    namee:namee
+	rno:rno
+    FloatLayout:
+        pos:0,0
+        size:root.width,root.height		
+		
+		Button:
+		    pos_hint: {"x":0.05, "top":0.95}
+			size_hint:0.05,0.05
+            text: "Back"
+            on_release:
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+				
+				
+		GridLayout:
+            cols:1
+            GridLayout:
+                cols:2		
+                Label:
+                    size_hint: 0.2,0.05
+                    pos_hint: {"x":1, "top":0.8}
+                    text: "Name: "
+                    font_size: 
+
+                TextInput:
+                    pos_hint: {"x":0.5, "top":0.8}
+                    size_hint: 0.3, 0.05
+                    id: namee
+                    multiline: False
+                    font_size: 
+
+                Label:
+                    size_hint: 0.2,0.05
+                    pos_hint: {"x":0, "top":0.8-0.13}
+                    text: "Roll No. : "
+                    font_size: 
+
+                TextInput:
+                    pos_hint: {"x":0.5, "top":0.8-0.13}
+                    size_hint: 0.3, 0.05
+                    id: rno
+                    multiline: False
+                    font_size:
+					
+            Button:
+			 
+		        pos_hint:{"x":root.center}
+			    size_hint:0.2,0.1
+                text: "Submit"
+                on_release:
+                    app.root.current = root.submit()
+                    root.manager.transition.direction = "left"
+
+
+
+<RegisterWindow>:
+    name:"register"
+	namee:namee
+	rno:rno
+    FloatLayout:
+        pos:0,0
+        size:root.width,root.height		
+		
+		Button:
+		    pos_hint: {"x":0.05, "top":0.95}
+			size_hint:0.05,0.05
+            text: "Back"
+            on_release:
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+				
+				
+		GridLayout:
+            cols:1
+            GridLayout:
+                cols:2		
+                Label:
+                    size_hint: 0.2,0.05
+                    pos_hint: {"x":1, "top":0.8}
+                    text: "Name: "
+                    font_size: 
+
+                TextInput:
+                    pos_hint: {"x":0.5, "top":0.8}
+                    size_hint: 0.3, 0.05
+                    id: namee
+                    multiline: False
+                    font_size: 
+
+                Label:
+                    size_hint: 0.2,0.05
+                    pos_hint: {"x":0, "top":0.8-0.13}
+                    text: "Roll No. : "
+                    font_size: 
+
+                TextInput:
+                    pos_hint: {"x":0.5, "top":0.8-0.13}
+                    size_hint: 0.3, 0.05
+                    id: rno
+                    multiline: False
+                    font_size:
+					
+            Button:
+			 
+		        pos_hint:{"x":root.center}
+			    size_hint:0.2,0.1
+                text: "Capture Image"
+                on_release:
+                    app.root.current = "click"
+                    root.manager.transition.direction = "left"
+					
+			Button:
+                pos_hint:{"x":0.2,"y":0.05}
+                size_hint: 0.6, 0.15
+                text: "Submit"
+                font_size: 
+                on_release:
+                    root.manager.transition.direction = "left"
+                    root.submit()		
+					
+					
+					
+<P>:
+    Label:
+        text: "Captured!"
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":1}
+
+    Button:
+        text: "OK"
+        size_hint: 0.8, 0.2
+        pos_hint: {"x":0.1, "y":0.1}
+		on_release:
+		    app.root.current = "register"
+			lambda: self.popup_exit.dismiss()
+            
+
+
+
+
+<CameraClick>:
+    name:"click"
+    
+    Camera:
+        id: camera
+        resolution: (640, 480)
+        play: True	
+		
+    Button:
+        text: 'Capture'
+        size_hint_y: None
+        height: '48dp'
+        on_press: root.capture()
+
+
+<Automatic>:
+    name:"autoattend"
+    
+	FloatLayout:
+        pos:0,0
+		size:root.width,root.height
+    
+        Button:
+	        pos_hint: {"x":0.05, "top":0.95}
+	        size_hint:0.05,0.05
+            text: "Back"
+            on_release:
+                app.root.current = "second"
+		        root.manager.transition.direction = "right"
+	
+        Button:
+            text: "Start"
+            size_hint: 0.2, 0.1
+            pos_hint: {"x":0.4, "y":0.45}
+	        on_release:
+	            app.root.current=root.autoterminate()
+		        root.manager.transition.direction = "right"	

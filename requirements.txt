@@ -1,0 +1,12 @@
+visual studio-desktop development with c/c++
+python 3.9
+kivy 2.0.0
+CMake
+
+face-recognition
+pandas
+opencv-python
+wrapt_timeout_decorator
+
+
+Press 'q' on keyboard to record attendance
